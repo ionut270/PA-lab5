@@ -1,4 +1,5 @@
 package com.company;
+
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +11,7 @@ public class Document implements Serializable {
 
     private Map<String, Object> tags = new HashMap<>();
 
-    public void addTag(String key, Object obj) {
+    public void addTag(String key, Object obj){
         tags.put(key, obj);
     }
 
