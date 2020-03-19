@@ -6,7 +6,8 @@ import com.company.utils.CatalogUtil;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    String ser_path = "C:/Users/eoancea/Desktop/Faculty/Seminarii/pa/Lab5catalog.ser";
+    public static void main(String[] args) throws IOException {
         Main app = new Main();
         app.testCreateSave();
         app.testLoadView();
@@ -14,7 +15,7 @@ public class Main {
 
     private void testCreateSave() {
         try {
-            Catalog catalog = new Catalog("Java Resources", "catalog.ser");
+            Catalog catalog = new Catalog("Java Resources", ser_path);
             Document doc = new Document("java1", "Java Course 1", "https://profs.info.uaic.ro/~acf/java/slides/en/intro_slide_en.pdf");
             doc.addTag("type", "Slides");
             catalog.add(doc);
@@ -29,7 +30,7 @@ public class Main {
 
     private void testLoadView() {
         try {
-            Catalog catalog = CatalogUtil.load("catalog.ser");
+            Catalog catalog = CatalogUtil.load(ser_path);
             Document doc = catalog.findById("java1");
             CatalogUtil.view(doc);
         }
